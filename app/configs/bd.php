@@ -63,7 +63,6 @@ function sqlexistvct($valor, $campo, $tabla) {
 function sql2array($sql) {
 	global $m;
 	if (!$res = $m->query($sql)) {
-		vq(sqlerror($sql, $m->error));
 	}
 	$r = array();
 	while ($temp = $res->fetch_array(MYSQLI_ASSOC)) {

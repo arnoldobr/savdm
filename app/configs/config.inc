@@ -1,5 +1,5 @@
 [debug]
-debug = NO
+debug = SI
 
 [paginacion]
 num_items = 100
@@ -24,6 +24,16 @@ m2 = "
   <label class='control-label' for='%name'>%title% %seperator%</label>%field%
     <span class='help-block'>%help%</span>
     %error%
+</div>
+"
+mh = "
+<div class='form-group'>
+  <div>
+  <label class='control-label' for='%name%'>%title% %seperator%</label>
+    %field%
+    <span class='help-block'>%help%</span>
+    %error%
+  </div>
 </div>
 "
 

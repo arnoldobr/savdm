@@ -4,24 +4,27 @@
 {literal}
 <script>
 $(document).ready(function() {
-     var max = 0;
-     $(".etiqueta1").each(function(){
-         if ($(this).width() > max)
-             max = $(this).width();
-     });
+	var max = 0;
+	$(".control-label").each(function(){
+	if ($(this).width() > max)
+		max = $(this).width();
+	});
 
 
-     $(".etiqueta1").width(max + 10);
-     $(".fila_form:odd").addClass('form_impar');
+	$(".control-label").width(max + 10);
 
-     var max2 = 0;
-     $(".campo1").each(function(){
-         if ($(this).width() > max2)
-             max2 = $(this).width();
-     });
+//	$(".fila_form:odd").addClass('form_impar');
 
-     $(".campo1").width(max2 + 10);
+	var max2 = 0;
+	$(".campo1").each(function(){
+	if ($(this).width() > max2)
+		max2 = $(this).width();
+	});
 
- });
+	$("[for='productos']").css('display','block');
+
+	$(".campo1").width(max2 + 10);
+
+});
 </script>
 {/literal}

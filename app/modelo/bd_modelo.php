@@ -353,8 +353,13 @@ $d['nombre'], $d['unidadcompra']);
    return $d['id'];
 }
 
-function bd_productos_opciones(){
-   $sql="SELECT id, LEFT(nombre,60)
+/**
+ * Devuelve un array con los productos que se pueden seleccionar
+ * @param  integer $n_car Número de caracteres máximo a mostrar (por defecto son 60)
+ * @return Array         Array con id y descripción del producto.
+ */
+function bd_productos_opciones($n_car=60){
+   $sql="SELECT id, LEFT(nombre,$n_car)
       FROM productos
       ORDER BY nombre ASC";
    $res=sql2options($sql);
@@ -377,17 +382,24 @@ function bd_productos_opcionesb(){
 ## proveedores ##
 
 function bd_proveedores_agregar($d){
-   $sql = sprintf("INSERT INTO proveedores (id, nombre, apodo, ubicacion, producto_ids, intermediario_id)
-    VALUES ('%s','%s','%s','%s','%s','%s')",
-    $d['id'],
-    $d['nombre'],
-    $d['apodo'],
-    $d['ubicacion'],
-    $d['producto_ids'],
-    $d['intermediario_id']);
-   $res = sql($sql);
-   $id  = sql2value("SELECT LAST_INSERT_ID()");
-   return $id;
+	$sql = sprintf("INSERT INTO proveedores (id, nombre, apodo, ubicacion, intermediario_id)
+		VALUES (NULL,'%s','%s','%s','%s')",
+		$d['nombre'],
+		$d['apodo'],
+		$d['ubicacion'],
+		$d['intermediario_id']
+	);
+
+	$res = sql($sql);
+	$id  = sql2value("SELECT LAST_INSERT_ID()");
+
+	foreach ($d['productos'] as $producto_id) {
+		$sql=sprintf("INSERT INTO productos_proveedores (id, producto_id, proveedor_id)
+			VALUES(NULL, '%s','%s')",
+			$producto_id, $id);
+		$res=sql($sql);
+	}
+	return $id;
 }
 
 function bd_proveedores_antsig($id){

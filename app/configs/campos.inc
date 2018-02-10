@@ -95,6 +95,11 @@ etiqueta[]  = "Intermediario"
 ayuda[]     = ""
 error[]     = ""
 
+campo[]     = "intermediario_id"
+etiqueta[]  = "Intermediario"
+ayuda[]     = ""
+error[]     = ""
+
 campo[]     = "nombre"
 etiqueta[]  = "Nombre"
 ayuda[]     = ""

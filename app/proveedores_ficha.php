@@ -20,7 +20,6 @@ if (!isset($_REQUEST['id'])) ir('menu.php?mensaje=Necesitas autorización para a
 $id=$_REQUEST['id'];
 $datos=bd_cargos_datos($id);
 
-#vq($datos);
 
 
 
