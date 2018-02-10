@@ -1,0 +1,28 @@
+{include file="iniciov.html"}
+<h1>Eliminar usuario</h1>
+<div class="tabla">
+<table border="1" class="table table-condensed table-hover table-striped table-bordered display">
+	<tbody>
+		<tr>
+			<th>id</th>
+			<th>clave</th>
+			<th>nombre</th>
+			<th>nivel</th>
+			<th>email</th>
+		</tr>
+		<tr>
+			<td>{$d.id}</td>
+			<td>{$d.clave}</td>
+			<td>{$d.nombre}</td>
+			<td>{$d.nivel}</td>
+			<td>{$d.email}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<a href="usuarios_eliminar2.php?id={$id}" class="btn btn-primary btn-lg active"> <i class="fa fa-check"></i> Sí, elimínelo</a>
+
+<button type="button" class="btn btn-primary" onClick="parent.location.reload(true);"><i class="fa fa-times"></i> No, Vuelva a la lista</button>
+<br>
+{include file="finalv.html"}

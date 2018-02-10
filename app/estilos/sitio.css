@@ -1,0 +1,191 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #2f4f4f;
+}
+
+
+.table-bordered td,
+.table-bordered th {
+	border: 1px solid #048284 !important;
+}
+
+
+.navbar-inverse {
+    background-color: #048284;
+    border-color: #048284;
+}
+
+body {
+	background: #dedede url("fondo.png");
+}
+
+a{
+color:rgb(4, 130, 132);
+}
+
+a:hover,a:focus{
+	text-decoration: underline;
+	color:rgb(4, 130, 132);
+}
+
+#footer-sec{
+	background-color: #d4e5e7;
+}
+
+.help-block{
+	font-weight:normal;
+	font-style:italic;
+	color:#AD1A1A;
+	font-size:0.9em;
+	text-align:left;
+	font-family:serif;
+	margin:0;
+	padding:0 3px 1px 3px;
+	display: inline-block;
+
+}
+
+.form-group{
+	margin-bottom: 1px;
+	border-bottom: solid 1px white;
+	margin-top: 10px;
+}
+
+/*.help-block:before{
+	font-family: FontAwesome;
+    content: "\f059";
+}*/
+
+.linea{
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+}
+
+
+
+.thumbnail{
+	background-color:  #ececec;
+}
+
+
+/* calendario */
+.calendar {
+	border: 1px solid #999;
+}
+
+td.calendar-day {
+	min-height: 80px;
+	font-size: 11px;
+	position: relative;
+}
+
+* html div.calendar-day {
+	height: 80px;
+}
+
+td.calendar-day:hover {
+}
+
+td.calendar-day-np {
+	background: #eee;
+	min-height: 80px;
+}
+
+* html div.calendar-day-np {
+	height: 80px;
+}
+
+td.calendar-day-head {
+	background: #ccc;
+	font-weight: bold;
+	text-align: center;
+	width: 50px;
+	padding: 5px;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+}
+
+div.day-number {
+	background: #999;
+	padding: 5px;
+	color: #fff;
+	font-weight: bold;
+	float: right;
+	margin: -5px -5px 0 0;
+	width: 20px;
+	text-align: center;
+}
+
+
+td.calendar-day, td.calendar-day-np {
+	width: 50px;
+	padding: 5px;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+
+
+/* Para nómina */
+
+.panel{
+	background-color: transparent;
+}
+
+.panel-default > .panel-heading {
+	color: #048284;
+	background-color: transparent;
+    border-color: #ddd;
+}
+
+
+.panel-title{
+	color: #048284;
+	background-color: transparent;
+}
+
+.panel-collapse{
+	color: black;
+	background-color: transparent;
+}
+
+.table{
+	border-color: navy;
+}
+
+
+.dropdown-menu{
+	background-color: #108D8F;
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus{
+	background-color: #108D8F;	
+}
+
+.navbar-nav > li:hover{
+	background-color: #108D8F;		
+}
+
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus{
+	background-color: #D4E5E7;
+	color: #108D8F;
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus,
+.dropdown-menu > li > a{
+	color: #ffffff;
+}
+
+.thumbnail .caption{
+	color: rgb(4, 130, 132);
+}

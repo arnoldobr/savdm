@@ -1,0 +1,121 @@
+{include file="inicio.html"}
+<div class="container">
+    <div class="col-sm-6">
+        <div class="page-header">
+            <h1>
+                <img src="./imagenes/48/cargo.png" alt=""> Proveedores
+                <a class="btn btn-default btn-lg" href="#" onclick='eModal.iframe("proveedores_agregar.php","Agregar proveedores")' title="Agregar">
+                    <i class="fa fa-plus">
+                    </i>
+                </a>
+            </h1>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="page-header">
+            <form action="proveedores_lista.php" method="POST">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1" style="padding:0 12px;">
+                        <i class="fa fa-search">
+                        </i>
+                    </span>
+                    <input aria-describedby="basic-addon1" class="form-control" id="p" name="p" placeholder="Escriba aquí y pulse INTRO para buscar en proveedores" type="text">
+                    </input>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="tabla">
+    <div class="mipaginacion">
+    <form style="display:inline">
+        <select name="ad" onchange="salta(this.form)">{section name=ii loop=$paginas}
+            <option {if $pagina_actual==$smarty.section.ii.iteration}selected="selected"{/if}
+                value="det_facturas_lista.php?pag={$smarty.section.ii.iteration}&i={$paginas[ii]}">Página {$smarty.section.ii.iteration}</option>
+        {/section}</select>
+    </form> de {$n_paginas}.
+</div>
+    <!-- div>{$datos_debug}</div -->
+    <table border="1" class="table table-condensed table-hover table-striped table-bordered display" id="tabla_proveedores" style="max-width:100%;">
+        <thead>
+            <tr>
+                <th data-column-id="id">
+                    {$meta.id.etiqueta}
+                </th>
+                <th data-column-id="nombre">
+                    {$meta.nombre.etiqueta}
+                </th>
+                <th data-column-id="apodo">
+                    {$meta.apodo.etiqueta}
+                </th>
+                <th data-column-id="ubicacion">
+                    {$meta.ubicacion.etiqueta}
+                </th>
+                <th data-column-id="intermediario">
+                    {$meta.intermediario.etiqueta}
+                </th>
+                <th>
+                    {$meta.productos.etiqueta}
+                </th>
+
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {section name=i loop=$datos}
+            <tr>
+                <td>{$datos[i].id}</td>
+                <td>{$datos[i].nombre}</td>
+                <td>{$datos[i].apodo}</td>
+                <td>{$datos[i].ubicacion}</td>
+                <td>{$datos[i].intermediario}</td>
+                <td>
+                    <ul>{section name=j loop=$datos[i].productos}
+                    <li>{$datos[i].productos[j].nombre}</li>
+                    {/section}</ul>
+                </td>
+                <td class="text-center" style="white-space: nowrap;">
+                    <a class="btn btn-default" href="#" onclick='eModal.ajax("proveedores_ficha.php?id={$datos[i].id}","Datos de proveedores")' style="margin-bottom:3px" title="Ficha de proveedores">
+                        <i class="fa fa-info">
+                        </i>
+                    </a>
+                    <a class="btn btn-default" href="#" onclick='eModal.iframe("proveedores_eliminar.php?id={$datos[i].id}","Eliminar elemento de proveedores")' style="margin-bottom:3px" title="Elimina el cargo">
+                        <i class="fa fa-trash-o">
+                        </i>
+                    </a>
+                    <a class="btn btn-default" href="#" onclick='eModal.iframe("proveedores_modificar.php?id={$datos[i].id}","Modificación de proveedores")' style="margin-bottom:3px" title="Modificar datos del cargo">
+                        <i class="fa fa-pencil-square-o">
+                        </i>
+                    </a>
+                </td>
+            </tr>
+            {/section}
+        </tbody>
+    </table>
+
+
+
+    <div class="mipaginacion">
+    <form style="display:inline">
+        <select name="ad" onchange="salta(this.form)">{section name=ii loop=$paginas}
+            <option {if $pagina_actual==$smarty.section.ii.iteration}selected="selected"{/if}
+                value="det_facturas_lista.php?pag={$smarty.section.ii.iteration}&i={$paginas[ii]}">Página {$smarty.section.ii.iteration}</option>
+        {/section}</select>
+    </form> de {$n_paginas}.
+</div>
+</div>
+{literal}
+<script>
+    /**
+ * Para hacer el salto automático en la paginación
+ */
+function salta(Sel){
+    if (Sel.ad.selectedIndex >= 0){
+        document.location=Sel.ad.options[Sel.ad.selectedIndex].value
+    }
+}
+</script>
+{/literal}
+{include file="final.html"}

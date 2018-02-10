@@ -1,0 +1,15 @@
+2018-01-17 14:16:25	admin	INSERT INTO cargos (id, cargo)<br>    VALUES ('','puesto2')
+2018-01-17 14:16:25	admin	SELECT LAST_INSERT_ID()
+2018-01-17 14:16:27	admin	SELECT COUNT(*) FROM cargos WHERE 1
+2018-01-17 14:16:27	admin	SELECT * FROM cargos ORDER BY id ASC<br>        LIMIT 0,100<br>        
+2018-01-17 14:20:35		SELECT clave FROM usuarios WHERE id LIKE '21364099' LIMIT 1
+2018-01-17 14:20:35		<br>    SELECT id, clave, nombre, nivel, email, activo<br>    FROM usuarios WHERE id='21364099'<br>    ORDER BY id ASC<br>    LIMIT 0,1<br>   
+2018-01-17 14:21:16		SELECT clave FROM usuarios WHERE id LIKE '21364099' LIMIT 1
+2018-01-17 14:21:16		<br>    SELECT id, clave, nombre, nivel, email, activo<br>    FROM usuarios WHERE id='21364099'<br>    ORDER BY id ASC<br>    LIMIT 0,1<br>   
+2018-01-17 14:22:18		SELECT clave FROM usuarios WHERE id LIKE 'admin' LIMIT 1
+2018-01-17 14:22:41		SELECT clave FROM usuarios WHERE id LIKE 'admin' LIMIT 1
+2018-01-17 14:22:42		<br>    SELECT id, clave, nombre, nivel, email, activo<br>    FROM usuarios WHERE id='admin'<br>    ORDER BY id ASC<br>    LIMIT 0,1<br>   
+2018-01-17 14:22:51	admin	SELECT COUNT(*) FROM asigdeds WHERE 1
+2018-01-17 14:22:51	admin	SELECT * FROM asigdeds ORDER BY id ASC<br>        LIMIT 0,100<br>        
+2018-01-17 14:24:04	admin	SELECT COUNT(*) FROM usuarios WHERE 1
+2018-01-17 14:24:04	admin	SELECT * FROM usuarios ORDER BY id ASC<br>        LIMIT 0,100<br>        

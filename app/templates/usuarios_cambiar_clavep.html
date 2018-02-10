@@ -1,0 +1,45 @@
+{include file="inicio.html"}
+{$f}
+{include file="final.html"}
+{literal}
+<script>
+$(document).ready(function() {
+     var max = 0;
+     $(".etiqueta1").each(function(){
+         if ($(this).width() > max)
+             max = $(this).width();    
+     });
+
+    
+     $(".etiqueta1").width(max + 10);
+     $(".fila_form:odd").addClass('form_impar');
+
+     var max2 = 0;
+     $(".campo1").each(function(){
+         if ($(this).width() > max2)
+             max2 = $(this).width();    
+     });
+     
+     $(".campo1").width(max2 + 10);
+
+$(".modal").addEvent("click", function(){
+   var URL = $this.attr('href'); 
+  var SM = new SimpleModal({"width":600});
+      SM.addButton("Action button", "btn primary", function(){
+          this.hide();
+      });
+      SM.addButton("Cancel", "btn");
+      SM.show({
+        "model":"modal-ajax",
+        "title":"Title",
+        "param":{
+          "url": URL,
+          "onRequestComplete": function(){ /* Action on request complete */ }
+        }
+      });
+});
+
+
+ });
+</script>
+{/literal}

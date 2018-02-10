@@ -1,0 +1,33 @@
+<ul class='nav navbar-nav navbar-right'>
+{if isset($smarty.session.usuario)}
+	{if $smarty.session.usuario.nivel=="ADMINISTRADOR"}
+		<li><a href="menu_admin.php">Inicio</a></li>
+		<li class="dropdown"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#">BD<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="clientes_lista.php">clientes</a></li>
+				<li><a href="intermediarios_lista.php">intermediarios</a></li>
+				<li><a href="productos_lista.php">productos</a></li>
+				<li><a href="proveedores_lista.php">Proveedores</a></li>
+				<li><a href="usuarios_lista.php">Usuarios</a></li>
+			</ul>
+		</li>
+		<li><a href="sqlguardar.php">Respaldo</a></li>
+	{elseif $smarty.session.usuario.nivel=="OPERADOR"}
+		<li><a href="menu_operador.php">Inicio</a></li>
+		<li class="dropdown"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#">Tablas<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="clientes_lista.php">clientes</a></li>
+				<li><a href="intermediarios_lista.php">intermediarios</a></li>
+				<li><a href="productos_lista.php">productos</a></li>
+				<li><a href="proveedores_lista.php">Proveedores</a></li>
+			</ul>
+		</li>
+		<li><a href="sqlguardar.php">Respaldo</a></li>
+	{else}
+		<!-- none -->
+	{/if}
+	<li><a href='index.php'>Salir</a></li>
+{/if}
+</ul>

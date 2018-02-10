@@ -1,0 +1,94 @@
+{include file="inicio.html"}
+
+<div class="container">
+	<div class="col-sm-6">
+		<div class="page-header">
+			<h1>
+                <img src="./imagenes/48/user.png" alt="">
+                Usuarios <a class="btn btn-default btn-lg" title="Agregar" href="#"
+            onClick='eModal.iframe("usuarios_agregar.php","Agregar usuarios")'><i
+            class="fa fa-plus"></i></a></h1>
+
+    </div>
+    </div>
+    <div class="col-sm-6">
+    <div class="page-header">
+    <form action="usuarios_lista.php" method="POST">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1" style="padding:0 12px;"><i class="fa fa-search"></i></span>
+                  <input id="p" name="p" type="text" class="form-control" placeholder="Escriba aquí y pulse INTRO para buscar en usuarios" aria-describedby="basic-addon1">
+                </div>
+            </form>
+    </div>
+    </div>
+</div>
+
+<div class="tabla">
+<div class="mipaginacion">
+    <form style="display:inline">
+        <select name="ad" onchange="salta(this.form)">{section name=ii loop=$paginas}
+            <option {if $pagina_actual==$smarty.section.ii.iteration}selected="selected"{/if}
+                value="usuarios_lista.php?pag={$smarty.section.ii.iteration}&i={$paginas[ii]}">Página {$smarty.section.ii.iteration}</option>
+        {/section}</select>
+    </form> de {$n_paginas}.
+</div>
+<table id="tabla_usuarios" style="max-width:100%;" border="1"
+    class="table table-condensed table-hover table-bordered display">
+    <thead>
+    <tr>
+<th ="nombre">{$meta.id.etiqueta}</th>
+<th ="nombre">{$meta.nombre.etiqueta}</th>
+<th ="nivel">{$meta.nivel.etiqueta}</th>
+<th ="email">{$meta.email.etiqueta}</th>
+<th ="activo">{$meta.activo.etiqueta}</th>
+<th></th>
+    </tr></thead><tbody>
+{section name=i loop=$datos}
+    <tr>
+<td>{$datos[i].id}</td>
+<td>{$datos[i].nombre}</td>
+<td>{$datos[i].nivel}</td>
+<td>{$datos[i].email}</td>
+<td>{$datos[i].activo}</td>
+
+    <td class="text-center" style="white-space: nowrap;">
+    <div class="btn-group" role="group" aria-label="...">
+        <!--a style="margin-bottom:3px" class="btn btn-default" title="Ficha de usuarios" href="#"
+            onClick='eModal.ajax("usuarios_ficha.php?id={$datos[i].id}","Datos de usuarios")'><i
+            class="fa fa-info"></i></a-->
+ 		<a style="margin-bottom:3px" class="btn btn-default" title="Modificar usuarios" href="#"
+            onClick='eModal.iframe("usuarios_modificar.php?id={$datos[i].id}","Modificación de usuarios")'><i
+            class="fa fa-pencil-square-o"></i></a>
+            
+       
+
+                   
+		<a class="btn btn-default" title="Cambiar Clave" href="#"
+           onClick='eModal.iframe("usuarios_cambiar_clave.php?id={$datos[i].id}","Cambio de clave del usuario {$datos[i].id}");'><i 
+           class="fa fa-unlock-alt"></i></a>
+    </td>
+    </tr>
+{/section}
+</tbody>
+</table>
+
+<div class="mipaginacion">
+    <form style="display:inline">
+        <select name="ad" onchange="salta(this.form)">{section name=ii loop=$paginas}
+            <option {if $pagina_actual==$smarty.section.ii.iteration}selected="selected"{/if}
+                value="usuarios_lista.php?pag={$smarty.section.ii.iteration}&i={$paginas[ii]}">Página {$smarty.section.ii.iteration}</option>
+        {/section}</select>
+    </form> de {$n_paginas}.
+</div>
+</div>
+{literal}<script>
+/**
+ * Para hacer el salto automático en la paginación
+ */
+function salta(Sel){
+    if (Sel.ad.selectedIndex >= 0){
+        document.location=Sel.ad.options[Sel.ad.selectedIndex].value
+    }
+}
+</script>{/literal}
+{include file="final.html"}
